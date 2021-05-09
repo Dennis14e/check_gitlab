@@ -18,8 +18,7 @@ parser.add_argument("-s", "--server",
 parser.add_argument("-t", "--token",
                     dest="token",
                     help="Your access token for Gitlab Health Checks.",
-                    action="store",
-                    required=True)
+                    action="store")
 parser.add_argument("-a", "--check-all",
                     dest="all",
                     help="Enable all checks",
@@ -51,10 +50,13 @@ parser.add_argument("--check-shared-state",
 args = parser.parse_args(sys.argv[1:])
 
 
-def get_readiness(server, token):
+def get_readiness(server, token=None):
     if not server.endswith("/", 0):
         server = server + "/"
-    request = urllib.request.urlopen(server + "-/readiness?token=" + token + "&all=1")
+    if token == None:
+        request = urllib.request.urlopen(server + "-/readiness?all=1")
+    else:
+        request = urllib.request.urlopen(server + "-/readiness?token=" + token + "&all=1")
     responseStr = str(request.read().decode("utf-8"))
     return json.loads(responseStr)
 
