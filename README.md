@@ -42,4 +42,4 @@ If an exception occurs or the check is executed with bad parameter configuration
 For further information see:
 * [GitLab web page](https://about.gitlab.com/)
 * [GitLab Health Check documentation](https://docs.gitlab.com/ee/user/admin_area/monitoring/health_check.html)
-+ [Original Project](https://github.com/KevinKrumbiegel/check_gitlab)
+* [Original Project](https://github.com/KevinKrumbiegel/check_gitlab)
