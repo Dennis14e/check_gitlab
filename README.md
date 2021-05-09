@@ -1,24 +1,26 @@
 # check_gitlab
+
 Nagios plugin for doing a GitLab health check.
+Copyright (c) 2021 Hernán Collazo
 Copyright (c) 2020 Kevin Krumbiegel
 
 ## Usage:
 
 ### In Nagios:
-1. Download the check_gitlab file. (i.e. using `wget -P ~/ https://github.com/KevinKrumbiegel/check_gitlab/blob/master/check_gitlab`)
-2. Mark the file as executable (i.e. using `sudo chmod +x ~/check_gitlab`)
-3. Move the file to /usr/lib/nagios/plugins/ (i.e. using `mv ~/check_gitlab /usr/lib/nagios/plugins/check_gitlab`)
-4. Optionally use the gitlab.conf file as a CheckCommand definition in icinga2 (by default all checks will be executed)
+1. Download the check_gitlab.py file.
+2. Mark the file as executable (i.e. using `sudo chmod +x ~/check_gitlab.py`)
+3. Move the file to /usr/lib/nagios/plugins/ (i.e. using `mv ~/check_gitlab.py /usr/lib/nagios/plugins/check_gitlab.py`)
 
 ### Standalone:
-1. Download the check_gitlab file. (i.e. using `wget -P ~/ https://github.com/KevinKrumbiegel/check_gitlab/blob/master/check_gitlab`)
+1. Download the check_gitlab.py file.
 2. Execute the file (Python needs to be installed)
 
 Usage: 
-```check_gitlab -s <server_url> [-h] [--cache-check] [--db-check] [--gitaly-check] [--queues-check] [--redis-check] [--shared-state-check]```
+```check_gitlab.py -s <server_url> [-h] [--cache-check] [--db-check] [--gitaly-check] [--queues-check] [--redis-check] [--shared-state-check]```
 
 * General
   * `-s <server_url>`      = URL of the server to be checked. (i.e. https://gitlab.example.org/)
+  * `-t <access_token>`    = Access token for Gitlab Health Checks. (visit https://gitlab.example.org/admin/health_check)
   * `-h`                   = This help screen
 * Checks:
   * `--check-all`          = Enable all checks
@@ -40,4 +42,4 @@ If an exception occurs or the check is executed with bad parameter configuration
 For further information see:
 * [GitLab web page](https://about.gitlab.com/)
 * [GitLab Health Check documentation](https://docs.gitlab.com/ee/user/admin_area/monitoring/health_check.html)
-* [Icinga](https://icinga.com/)
++ [Original Project](https://github.com/KevinKrumbiegel/check_gitlab)
